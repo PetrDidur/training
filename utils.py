@@ -10,14 +10,14 @@ def load_candidates_from_json(path):
 
 
 def get_candidate(candidate_id):
-    for candidate in load_candidates_from_json():
+    for candidate in load_candidates_from_json("candidates.json"):
         if candidate_id == candidate['id']:
             return candidate
 
 
 def get_candidates_by_name(candidate_name):
     data = []
-    for candidate in load_candidates_from_json():
+    for candidate in load_candidates_from_json("candidates.json"):
         if candidate_name. lower() == candidate['name'].lower():
             data.append(candidate)
     return data
