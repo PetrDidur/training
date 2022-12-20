@@ -19,7 +19,16 @@ def candidate_page(pk):
     return render_template('card.html', candidate=candidate)
 
 
+@app.route('/search/<name>')
+def find_name(name):
+    candidates = get_candidates_by_name(name)
+    return render_template('search.html', candidates=candidates, count_candidates=len(candidates))
 
+
+@app.route("/skill/<skill_name>")
+def skill_search(skill_name):
+    candidates = utils.get_candidates_by_skill(skill_name.lower())
+    return render_template('skill.html', candidates=candidates, count_candidates=len(candidates))
 
 
 if __name__ == '__main__':
